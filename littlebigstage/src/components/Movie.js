@@ -1,22 +1,28 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-export default function Movie({ movie }) {
+export default function Movie({ image, title, rating }) {
     return (
         <div className="movieContainer">
             <div className="movie">
                 <div className="movie_image">
-                    <img src={movie.image} />
+                    {image && (
+                        <img
+                            style={{ height: 100, width: 200, objectFit: 'cover' }}
+                            src={URL.createObjectURL(image)}
+                            alt="Post cover"
+                        />
+                    )}
                 </div>
                 <div className="movie_title">
-                    <h3>{movie.title}</h3>
+                    <h3>{title}</h3>
                 </div>
 
                 <div className="movie_rating">
-                    <p>{movie.rating} <Link to={`/reviewdetails/${movie.title}`}>Details</Link></p>
+                    <p>{rating} <Link to={`/reviewdetails/${title}`}>Details</Link></p>
                 </div>
             </div>
-            <hr />
+            {/* <hr /> */}
         </div>
     )
 }

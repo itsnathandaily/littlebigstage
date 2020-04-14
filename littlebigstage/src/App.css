@@ -12,7 +12,7 @@ nav{
   justify-content: space-around;
   align-items: center;
   min-height: 10vh;
-  background: rgb(73,79,82);
+  background: #027368;
   color:white;
 }
 
@@ -31,3 +31,35 @@ nav{
 .movie_title{
   flex-grow: 1;
 }
+
+.movie_title{
+  flex-grow: 1;
+}
+
+.movie_rating{
+  flex-grow: 1;
+}
+
+.Details_container{
+  display:flex;
+  flex-wrap: wrap;
+  height: 100%;
+}
+
+.Details_container img{
+  width:100%;
+}
+
+.Details_image{
+  background-color: lightblue;
+  height: 20rem;
+  flex:1 1 20rem;
+}
+
+.Details_title_rating_why{
+  flex:1 1 20rem;
+  align-items: center;
+  justify-content: center;
+}
+
+

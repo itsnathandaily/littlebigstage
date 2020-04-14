@@ -17,7 +17,7 @@ export default function Nav() {
             <h1>Little Big Stage</h1>
             <Link style={navStyle} to="/"><p>Listing</p></Link>
             <div className="searchmovie_div"><SearchMovie /></div>
-            <Link style={navStyle} to="/addcontent"><p>{/* Add Content */}</p></Link>
+            <Link style={navStyle} to="/addcontent"><p>Add Content</p></Link>
             <p>Total Reviewed {ExistingMovies.length}</p>
         </nav>
     )

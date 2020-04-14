@@ -8,7 +8,8 @@ export default function SearchMovie() {
     const ExistingMovies = useSelector(state => state.existingMovies)
     //console.log('Existing Movies are', ExistingMovies)
 
-    const [movies, setMovies] = useContext(MovieContext)
+     const [movies, setMovies] = React.useContext(MovieContext)
+   // const [movies, setMovies] = React.useState(ExistingMovies)
     const [search, setSearch] = useState("");
     const [query, setQuery] = useState("")
 
