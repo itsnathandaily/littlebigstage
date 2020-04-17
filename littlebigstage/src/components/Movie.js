@@ -19,7 +19,7 @@ export default function Movie({ image, title, rating }) {
                 </div>
 
                 <div className="movie_rating">
-                    <p>{rating} <Link to={`/reviewdetails/${title}`}>Details</Link></p>
+                    <p>{rating} <Link to={`/reviewdetails/${title}`}>Review</Link></p>
                 </div>
             </div>
             {/* <hr /> */}

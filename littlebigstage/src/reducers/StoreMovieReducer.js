@@ -1,12 +1,4 @@
-import React, { useState, useContext } from 'react'
-import uuidv4 from 'uuid/v4';
-import { MovieContext } from '../contexts/MovieContext'
-
-
-
-
-
-
+import React from 'react'
 
 
 const storeMovieReducer = (state = [

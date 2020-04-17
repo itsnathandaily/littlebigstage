@@ -12,7 +12,8 @@ nav{
   justify-content: space-around;
   align-items: center;
   min-height: 10vh;
-  background: #027368;
+  /* background: #027368; */
+  background-color: #038C5A;
   color:white;
 }
 
@@ -22,6 +23,22 @@ nav{
   justify-content: space-around;
   align-items: center;
 }
+
+
+.movie_list_container{
+display : flex;
+justify-content: center;
+align-items: center;
+}
+
+.movie_list{
+  background-color: #EFF2D8;
+  width: 70%;
+  
+}
+
+
+
 
 .movie{
   display:flex;
@@ -51,7 +68,7 @@ nav{
 }
 
 .Details_image{
-  background-color: lightblue;
+  background-color: #EFF2D8;
   height: 20rem;
   flex:1 1 20rem;
 }

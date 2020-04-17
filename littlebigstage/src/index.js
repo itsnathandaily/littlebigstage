@@ -3,22 +3,20 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import { createStore, applyMiddleware } from 'redux';
-import thunk from 'redux-thunk';
-import logger from 'redux-logger'
+import { createStore, applyMiddleware , compose } from 'redux';
+//import thunk from 'redux-thunk';
+//import logger from 'redux-logger'
 import allReducers from './reducers'
 import { Provider } from 'react-redux'
+import createSagaMiddleware from 'redux-saga'
+import {watchStoreMovie} from './sagas/saga'
 
-const middleWare = () => {
-    return {
-        middle: applyMiddleware(thunk, logger()),
-        window: window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-    }
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const sagaMiddleware = createSagaMiddleware();
 
-}
 
-const store = createStore(allReducers, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
-
+const store = createStore(allReducers, /* preloadedState, */ composeEnhancers(applyMiddleware(sagaMiddleware)));
+sagaMiddleware.run(watchStoreMovie);
 
 
 ReactDOM.render(

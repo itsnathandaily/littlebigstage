@@ -18,10 +18,12 @@ export default function MovieList() {
 
     return (
 
-        <div>
-            {movies.map(movie => (
-                <Movie {...movie} key={movie.id} />
-            ))}
+        <div className="movie_list_container">
+            <div className="movie_list">
+                {movies.map(movie => (
+                    <Movie {...movie} key={movie.id} />
+                ))}
+            </div>
         </div>
 
     )

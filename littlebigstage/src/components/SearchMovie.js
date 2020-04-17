@@ -57,7 +57,7 @@ export default function SearchMovie() {
     return (
         <div className="search-div">
             <form onSubmit={getSearch} className="search-form">
-                <input className="search-input" type="text" value={search} onChange={updateSearch} />
+                <input className="search-input" type="text" value={search} placeholder = "Search" onChange={updateSearch} />
                 <button className="search-button" type="submit">Search</button>
             </form>
         </div>
