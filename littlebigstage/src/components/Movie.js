@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import StarRatingRender from './StarRatingRender'
 
 export default function Movie({ image, title, rating }) {
     return (
@@ -10,6 +11,8 @@ export default function Movie({ image, title, rating }) {
                         <img
                             style={{ height: 100, width: 200, objectFit: 'cover' }}
                             src={URL.createObjectURL(image)}
+                            // src={`blob:${image}`}
+                            // src="data:image/jpeg;base64,W29iamVjdCBPYmplY3Rd"
                             alt="Post cover"
                         />
                     )}
@@ -19,7 +22,7 @@ export default function Movie({ image, title, rating }) {
                 </div>
 
                 <div className="movie_rating">
-                    <p>{rating} <Link to={`/reviewdetails/${title}`}>Review</Link></p>
+                    <p><StarRatingRender rating={rating} /> <Link to={`/reviewdetails/${title}`}>Review</Link></p>
                 </div>
             </div>
             {/* <hr /> */}

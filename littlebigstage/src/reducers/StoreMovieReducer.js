@@ -1,13 +1,12 @@
 import React from 'react'
 
-
 const storeMovieReducer = (state = [
     {
         id: 1,
         title: "Come Away Show",
         category: "play",
         image: null,
-        rating: "6/10",
+        rating: 3,
         why: "Although it's a slow start, it's drags you in eventually.  It's quite emotional.  But I almost walked out during the first 20 minutes"
     },
     {
@@ -15,7 +14,7 @@ const storeMovieReducer = (state = [
         title: "Pass Over",
         category: "play",
         image: null,
-        rating: "6/10",
+        rating: 4,
         why: "Although it's a slow start, it's drags you in eventually.  It's quite emotional.  But I almost walked out during the first 20 minutes"
     }
 

@@ -4,11 +4,11 @@ import { MovieContext } from '../contexts/MovieContext'
 import { Provider, useSelector, useDispatch } from 'react-redux'
 
 
-export default function MovieList() {
-    const [movies, setMovies] = React.useContext(MovieContext)
-    const ExistingMovies = useSelector(state => state.existingMovies)
+export default function MovieList({ movies }) {
+    //const [movies, setMovies] = React.useContext(MovieContext)
+    // const ExistingMovies = useSelector(state => state.existingMovies)
 
-    // console.log('existing movies are ', ExistingMovies)
+    console.log('movies are ', movies)
 
     // const [movies, setMovies] = React.useState(ExistingMovies)
     // const [search, setSearch] = useState("");
@@ -20,7 +20,7 @@ export default function MovieList() {
 
         <div className="movie_list_container">
             <div className="movie_list">
-                {movies.map(movie => (
+                {movies.map((movie,i) => (
                     <Movie {...movie} key={movie.id} />
                 ))}
             </div>
