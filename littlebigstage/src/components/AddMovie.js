@@ -16,7 +16,8 @@ export default function AddMovie() {
     const [image, setImage] = useState(null)
     const [rating, setRating] = useState(null)
     const [why, setWhy] = useState('')
-    const [movies, setMovies] = useContext(MovieContext)
+    const [email, setEmail] = useState('')
+    const [ListMovies, setListMovies] = useContext(MovieContext)
     const imageInputRef = React.useRef()
 
 
@@ -47,8 +48,8 @@ export default function AddMovie() {
         //setId(uuidv4());
         setId(Date.now())
         e.preventDefault();
-        setMovies(prevMovies => [...prevMovies, { id: id, title: title, category: category, image: image, rating: rating, why: why }])
-        dispatch(storeMovie([{ id: Date.now(), title: title, category: category, image: image, rating: rating, why: why }]))
+        setListMovies(prevMovies => [...prevMovies, { id: Date.now(), title: title, category: category, image: image, reviews: [{ Date: Date.now(), rating: rating, why: why, email: email }] }])
+        dispatch(storeMovie([{ id: Date.now(), title: title, category: category, image: image, reviews: [{ Date: Date.now(), rating: rating, why: why, email: email }] }]))
         setTitle('')
         setWhy('')
         setRating('')
@@ -56,11 +57,11 @@ export default function AddMovie() {
         imageInputRef.current.value = '';
     }
 
-    function handleSubmit(event) {
-        event.preventDefault();
-        const post = { id: Date.now(), title, category, image, rating, why }
-        console.log('post is ', post)
-    }
+    // function handleSubmit(event) {
+    //     event.preventDefault();
+    //     const post = { id: Date.now(), title, category, image, rating, why }
+    //     console.log('post is ', post)
+    // }
 
     return (
         <div className="addMovie">

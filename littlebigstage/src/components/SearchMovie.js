@@ -1,9 +1,11 @@
-import React, { useState, useContext, useEffect } from 'react'
+import React from 'react'
+import { SearchMoviesContext } from '../App';
+import App from '../App';
 
 
+export default function SearchMovie({ query, setQuery, search, setSearch, ListMovies, setListMovies }) {
 
-export default function SearchMovie({ ExistingMovies, query, setQuery, searchForMovies, search, setSearch, movies, setMovies }) {
-
+    const { searchForMovies, ExistingMovies } = React.useContext(SearchMoviesContext)
 
     const updateSearch = e => {
         e.preventDefault();
@@ -22,7 +24,7 @@ export default function SearchMovie({ ExistingMovies, query, setQuery, searchFor
         const [...result] = searchForMovies(query);
         // const [...result] = ExistingMovies.filter(movie => movie.title === query)
         console.log('result is ', result)
-        query === '' ? setMovies(ExistingMovies) : setMovies(result)
+        query === '' ? setListMovies(ExistingMovies) : setListMovies(result)
     }, [query])
 
 

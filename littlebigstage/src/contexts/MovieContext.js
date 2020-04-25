@@ -7,7 +7,7 @@ export const MovieContext = createContext();
 
 export const MovieProvider = (props) => {
 
-    const [movies, setMovies] = useState([
+    const [ListMovies, setListMovies] = useState([
         {
             id: uuidv4(),
             title: "Come Away Show",
@@ -29,7 +29,7 @@ export const MovieProvider = (props) => {
 
 
     return (
-        <MovieContext.Provider value={[movies, setMovies]}>
+        <MovieContext.Provider value={[ListMovies, setListMovies]}>
             {props.children}
         </MovieContext.Provider>
     );

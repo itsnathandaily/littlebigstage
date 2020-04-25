@@ -18,18 +18,11 @@ function App() {
 
   const [search, setSearch] = React.useState("");
   const [query, setQuery] = React.useState("")
-  const [movies, setMovies] = React.useState(ExistingMovies)
+  const [ListMovies, setListMovies] = React.useState(ExistingMovies)
 
   const searchForMovies = (searchQuery) => {
-    //const [...result] = movies.filter(movie => movie.title === query);
-    // const [...result] = ExistingMovies.filter(movie => movie.title === query);
-    // console.log('result is ', result)
     return ExistingMovies.filter(movie => movie.title === searchQuery);
-    //query === '' ? getOrginalMoviesFromLocalStorage() : setMovies(result)
-    // query === '' ? setMovies(ExistingMovies) : setMovies(result)
-    //query === '' ? return ExistingMovies : return result;
   }
-
 
 
 
@@ -37,17 +30,17 @@ function App() {
 
   return (
     <MovieProvider>
-      <SearchMoviesContext.Provider value={{ searchForMovies }}>
+      <SearchMoviesContext.Provider value={{ searchForMovies, ExistingMovies }}>
         <Router>
           <div className="App">
-            <Nav ExistingMovies={ExistingMovies} query={query} setQuery={setQuery} searchForMovies={searchForMovies} search={search} setSearch={setSearch} movies={movies} setMovies={setMovies} />
+            <Nav ExistingMovies={ExistingMovies} query={query} setQuery={setQuery} searchForMovies={searchForMovies} search={search} setSearch={setSearch} ListMovies={ListMovies} setListMovies={setListMovies} />
 
             <Switch>
-              <Route exact path="/"  ><MovieList movies={movies} /></Route>
+              <Route exact path="/"  ><MovieList ListMovies={ListMovies} /></Route>
               <Route path="/addcontent" exact  ><AddMovie /></Route>
               <Route path="/reviewdetails/:title" component={MovieReviewDetails} ></Route>
             </Switch>
-            
+
 
           </div>
         </Router>

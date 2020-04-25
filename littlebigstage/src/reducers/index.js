@@ -1,9 +1,10 @@
 import { combineReducers } from 'redux';
 import storeMovieReducer from './StoreMovieReducer';
-import SearchReducer from './SearchReducer';
+import UpdateMovieReducer from './UpdateReducer';
 
 const allReducers = combineReducers({
-    existingMovies: storeMovieReducer
+    existingMovies: storeMovieReducer,
+    
 
 })
 

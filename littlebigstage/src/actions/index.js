@@ -1,3 +1,8 @@
+
+
+
+
+
 export const storeMovie = (newMovie) => {
     return {
         type: 'STOREMOVIE',
@@ -6,13 +11,14 @@ export const storeMovie = (newMovie) => {
     }
 }
 
-export const updateReview = ({ id, rating, why }) => {
-
+export const updateReview = ({ id, rating, why, email }) => {
+    console.log('inside updateReview Action')
     return {
         type: 'UPDATE_REVIEW',
         id: id,
         rating: rating,
-        why: why
+        why: why,
+        email: email
     }
 }
 
