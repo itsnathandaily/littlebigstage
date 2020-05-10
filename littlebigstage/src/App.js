@@ -2,50 +2,38 @@ import React from 'react';
 import './App.css';
 import MovieList from './components/MovieList'
 import Nav from './components/Nav';
-import { MovieProvider } from './contexts/MovieContext'
-import { ExistingMovieProvider } from './contexts/ExistingMovieContext';
 import AddMovie from './components/AddMovie';
 import MovieReviewDetails from './components/MovieReviewDetails'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import { useSelector } from 'react-redux'
-import { StarRating } from './components/StarRating';
-import StarRatingRender from './components/StarRatingRender';
+import { useSelector, useDispatch} from 'react-redux'
+
 export const SearchMoviesContext = React.createContext()
 
 
 function App() {
   const ExistingMovies = useSelector(state => state.existingMovies)
-
-  const [search, setSearch] = React.useState("");
-  const [query, setQuery] = React.useState("")
   const [ListMovies, setListMovies] = React.useState(ExistingMovies)
-
+const dispatch = useDispatch();
   const searchForMovies = (searchQuery) => {
-    return ExistingMovies.filter(movie => movie.title === searchQuery);
+    return ExistingMovies.filter(movie => movie.title.toLowerCase().includes( searchQuery.toLowerCase()));
   }
 
-
-
-
-
   return (
-    <MovieProvider>
-      <SearchMoviesContext.Provider value={{ searchForMovies, ExistingMovies }}>
-        <Router>
-          <div className="App">
-            <Nav ExistingMovies={ExistingMovies} query={query} setQuery={setQuery} searchForMovies={searchForMovies} search={search} setSearch={setSearch} ListMovies={ListMovies} setListMovies={setListMovies} />
+   
+    <SearchMoviesContext.Provider value={{ searchForMovies, ExistingMovies , setListMovies, dispatch}}>
+      <Router>
+        <div className="App">
+          <Nav ExistingMovies={ExistingMovies}  searchForMovies={searchForMovies}  ListMovies={ListMovies} setListMovies={setListMovies} />
+          <Switch>
+            <Route exact path="/"  ><MovieList ListMovies={ListMovies} /></Route>
+            <Route path="/addcontent" exact  ><AddMovie /></Route>
+            <Route path="/reviewdetails/:title" component={MovieReviewDetails} ></Route>
+          </Switch>
 
-            <Switch>
-              <Route exact path="/"  ><MovieList ListMovies={ListMovies} /></Route>
-              <Route path="/addcontent" exact  ><AddMovie /></Route>
-              <Route path="/reviewdetails/:title" component={MovieReviewDetails} ></Route>
-            </Switch>
-
-
-          </div>
-        </Router>
-      </SearchMoviesContext.Provider>
-    </MovieProvider>
+        </div>
+      </Router>
+    </SearchMoviesContext.Provider>
+    
   );
 }
 

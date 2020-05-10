@@ -1,4 +1,4 @@
-import { takeEvery, put, delay } from 'redux-saga/effects'
+import { take, put, delay } from 'redux-saga/effects'
 
 function* storeMovieSaga(newMovie) {
     yield delay(10000);
@@ -6,5 +6,6 @@ function* storeMovieSaga(newMovie) {
 }
 
 export function* watchStoreMovie() {
-    yield takeEvery('STOREMOVIE', storeMovieSaga)
+    yield take('STOREMOVIE', storeMovieSaga)
+    console.log('started')
 }

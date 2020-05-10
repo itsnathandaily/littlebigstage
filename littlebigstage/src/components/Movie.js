@@ -1,8 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import StarRatingRender from './StarRatingRender'
+import DisplayStarRating from './DisplayStarRating'
+import { CalculateStarRatingAverage } from '../helpers'
+import RatingIcons from './displayIcons/RatingIcons'
 
-export default function Movie({ image, title, reviews }) {
+
+export default function Movie({ id, image, title, reviews }) {
+
     return (
         <div className="movieContainer">
             <div className="movie">
@@ -20,8 +24,14 @@ export default function Movie({ image, title, reviews }) {
                 </div>
 
                 <div className="movie_rating">
-                    <p><StarRatingRender rating={reviews[0].rating} /> <Link to={`/reviewdetails/${title}`}>Review</Link></p>
+                    {<>
+                        {/* <DisplayStarRating rating={CalculateStarRatingAverage(reviews)} id={id} />   */}
+                        <RatingIcons rate={CalculateStarRatingAverage(reviews)} />
+                        <Link to={`/reviewdetails/${title}`} >See Reviews</Link>
+                    </>
+                    }
                 </div>
+              
             </div>
             {/* <hr /> */}
         </div>

@@ -1,0 +1,1 @@
+export {CalculateStarRatingAverage} from './CalculateStarRatingAverage'

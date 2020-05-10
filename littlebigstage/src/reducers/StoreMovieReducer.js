@@ -12,17 +12,51 @@ const storeMovieReducer = (state = [
                 rating: 3,
                 why: "Although it's a slow start, it's drags you in eventually.  It's quite emotional.  But I almost walked out during the first 20 minutes",
                 email: "email address"
+            },
+            {
+                Date: Date.now(),
+                rating: 1,
+                why: "Hated it!",
+                email: "Joe@gmail.com"
             }
         ]
 
     },
     {
         id: 2,
+        title: "Level Up",
+        category: "play",
+        image: null,
+        reviews: [
+            {
+                Date: Date.now(),
+                rating: 3,
+                why: "Although it's a slow start, it's drags you in eventually.  It's quite emotional.  But I almost walked out during the first 20 minutes",
+                email: "email address"
+            },
+            {
+                Date: Date.now(),
+                rating: 2,
+                why: "Hated it!",
+                email: "Joe@gmail.com"
+            }
+        ]
+
+    }
+    ,
+    {
+        id: 3,
         title: "Pass Over",
         category: "play",
         image: null,
         reviews: [
             {
+                Date: Date.now(),
+                rating: 5,
+                why: "Loved It",
+                email: "email address"
+            }
+            , {
                 Date: Date.now(),
                 rating: 4,
                 why: "Although it's a slow start, it's drags you in eventually.  It's quite emotional.  But I almost walked out during the first 20 minutes",
@@ -37,9 +71,9 @@ const storeMovieReducer = (state = [
     switch (action.type) {
         case 'STOREMOVIE':
             return [...state, ...action.newMovie]
-        case 'UPDATE_REVIEW': {      
+        case 'UPDATE_REVIEW': {
             const index = state.findIndex(movie => movie.id === action.id)
-            state[index].reviews.push({
+            state[index].reviews.unshift({
                 Date: Date.now(),
                 rating: action.rating,
                 why: action.why,

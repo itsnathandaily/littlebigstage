@@ -1,15 +1,10 @@
-import React, { useState, useContext, useEffect } from 'react'
+import React from 'react'
 import Movie from './Movie'
 
 
 
 export default function MovieList({ ListMovies }) {
    
-    console.log('movies are ', ListMovies)
-
-   
-
-
 
     return (
 

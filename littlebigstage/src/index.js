@@ -4,8 +4,6 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { createStore, applyMiddleware , compose } from 'redux';
-//import thunk from 'redux-thunk';
-//import logger from 'redux-logger'
 import allReducers from './reducers'
 import { Provider } from 'react-redux'
 import createSagaMiddleware from 'redux-saga'

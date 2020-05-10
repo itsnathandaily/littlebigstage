@@ -1,14 +1,14 @@
-import React from 'react';
+// import React from 'react';
 
-export const DispatchContext = React.createContext()
+// export const DispatchContext = React.createContext()
 
-export const DispatchProvider = (props)=>{
+// export const DispatchProvider = (props)=>{
 
-    const dispatch1 = React.useDispatch();
+//     const dispatch1 = React.useDispatch();
 
-    return (
-        <DispatchContext.Provider value = {dispatch1}>
+//     return (
+//         <DispatchContext.Provider value = {dispatch1}>
 
-        </DispatchContext.Provider>
-    )
-}
+//         </DispatchContext.Provider>
+//     )
+// }

@@ -1,15 +1,11 @@
-import React, { useState, useContext } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
-import { MovieContext } from '../contexts/MovieContext'
-import uuidv4 from "uuid/v4";
+import React, { useState} from 'react'
+import { SearchMoviesContext } from '../App';
 import { storeMovie } from '../actions';
 import { StarRating } from './StarRating'
 
 export default function AddMovie() {
 
-
-    const dispatch = useDispatch()
-
+    const { ExistingMovies, dispatch } = React.useContext(SearchMoviesContext)
     const [id, setId] = useState(0)
     const [title, setTitle] = useState('')
     const [category, setCategory] = useState('')
@@ -17,9 +13,8 @@ export default function AddMovie() {
     const [rating, setRating] = useState(null)
     const [why, setWhy] = useState('')
     const [email, setEmail] = useState('')
-    const [ListMovies, setListMovies] = useContext(MovieContext)
     const imageInputRef = React.useRef()
-
+    const [ListMovies, setListMovies] = useState(ExistingMovies)
 
 
 
@@ -70,7 +65,7 @@ export default function AddMovie() {
                 <label>Title</label><input type="text" name="title" value={title} onChange={addTitle} /><br />
                 <label>Category</label><input type="text" name="category" value={category} onChange={addCategory} /><br />
                 <label>Image</label><input type="file" name="image" onChange={event => addImage(event)} ref={imageInputRef} /><br />
-                <label>Rating</label><input type="text" name="rating" value={rating} onChange={addRating} className="fastarRadio" /><StarRating rating={rating} setRating={setRating} /><br />
+                <label>Rating</label><input type="text" name="rating" value={rating} onChange={addRating} className="fastarRadio" /><StarRating rating={rating} setRating={setRating} key ={id}/><br />
                 <label>Why</label><textarea type="text" name="why" value={why} onChange={addWhy} />
                 <button>Add Content</button>
             </form>
