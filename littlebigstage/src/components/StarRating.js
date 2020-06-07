@@ -1,5 +1,5 @@
 import React from 'react'
-import { FaStar } from 'react-icons/fa'
+import { IoIosStar } from 'react-icons/io'
 
 
 export const StarRating = ({rating,setRating}) => {
@@ -14,7 +14,7 @@ export const StarRating = ({rating,setRating}) => {
                     <label>
                         <input type="radio" name="radio" value={i} onClick={() => setRating(rateValue)} className="fastarRadio"
                         />
-                        <FaStar className="fastar" size={30} color={rateValue <= (hover || rating) ? "#038C5A" : "grey"} onMouseEnter={() => setHover(rateValue)}
+                        <IoIosStar className="fastar" size={30} color={rateValue <= (hover || rating) ? "#038C5A" : "grey"} onMouseEnter={() => setHover(rateValue)}
                             onMouseLeave={() => setHover(null)} />
                         
                     </label>

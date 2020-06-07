@@ -5,16 +5,16 @@ import { CalculateStarRatingAverage } from '../helpers'
 import RatingIcons from './displayIcons/RatingIcons'
 
 
-export default function Movie({ id, image, title, reviews }) {
+export default function Movie({ id, coverImage, title, reviews }) {
 
     return (
         <div className="movieContainer">
             <div className="movie">
                 <div className="movie_image">
-                    {image && (
+                    {coverImage && (
                         <img
                             style={{ height: 100, width: 200, objectFit: 'cover' }}
-                            src={URL.createObjectURL(image)}
+                            src={URL.createObjectURL(coverImage)}
                             alt="Post cover"
                         />
                     )}

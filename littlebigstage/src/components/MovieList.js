@@ -3,14 +3,13 @@ import Movie from './Movie'
 
 
 
+
 export default function MovieList({ ListMovies }) {
-   
-
+    
     return (
-
         <div className="movie_list_container">
             <div className="movie_list">
-                {ListMovies.map((movie,i) => (
+                {ListMovies && ListMovies.map((movie, i) => (
                     <Movie {...movie} key={movie.id} />
                 ))}
             </div>

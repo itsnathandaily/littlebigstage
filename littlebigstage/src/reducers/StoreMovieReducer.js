@@ -1,7 +1,8 @@
 import React from 'react'
+import axios from 'axios'
 
 const storeMovieReducer = (state = [
-    {
+    /* {
         id: 1,
         title: "Come Away Show",
         category: "play",
@@ -64,7 +65,7 @@ const storeMovieReducer = (state = [
             }
         ]
     }
-
+ */
 
 ]
     , action) => {

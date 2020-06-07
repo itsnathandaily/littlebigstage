@@ -23,7 +23,7 @@ export default function MovieReviewDetails({ match }) {
             <div className="Details_image">
                 {searchForMoviesOnMatchMemo.image && (
                     <img
-                        src={URL.createObjectURL(searchForMoviesOnMatchMemo.image)}
+                        src={URL.createObjectURL(searchForMoviesOnMatchMemo.coverImage)}
                         style={{ objectFit: 'cover' }}
                     />
                 )}

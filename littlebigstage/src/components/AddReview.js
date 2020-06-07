@@ -2,6 +2,7 @@ import React from 'react'
 import { StarRating } from './StarRating'
 import { updateReview } from '../actions';
 import { SearchMoviesContext } from '../App';
+import axios from 'axios';
 
 export default function AddReview({ id, setNewReview, setDisplayMessage }) {
     const { dispatch } = React.useContext(SearchMoviesContext)
@@ -36,11 +37,18 @@ export default function AddReview({ id, setNewReview, setDisplayMessage }) {
 
     function handle_New_Review_Rating(e) {
         e.preventDefault();
-        // console.log('validate forms is', validateForms())
-        // console.log('Email Error is ', EmailError)
-        // console.log('Rating Error is ', RatingError)
+        
         if (validateForms()) {
-            dispatch(updateReview({ id, rating, why, email }))
+           // dispatch(updateReview({ id, rating, why, email }))
+    const reviewUpdate = {
+        reviews:[{
+            rating,
+            why,
+            username:email
+        }   
+        ]
+    }        
+axios.put(`http://localhost:5000/movies/update/${id}`,reviewUpdate).then(res => console.log(res.data))
             setWhy('');
             setRating('');
             setEmail('');
