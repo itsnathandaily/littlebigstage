@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { ModalProvider } from "react-modal-hook";
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
@@ -18,9 +19,11 @@ sagaMiddleware.run(watchStoreMovie);
 
 
 ReactDOM.render(
+    <ModalProvider>
     <Provider store={store} >
         <App />
-    </Provider>,
+    </Provider>
+    </ModalProvider>,
     document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change

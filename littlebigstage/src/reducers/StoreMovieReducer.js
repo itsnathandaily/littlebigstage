@@ -1,5 +1,4 @@
-import React from 'react'
-import axios from 'axios'
+
 
 const storeMovieReducer = (state = [
     /* {
@@ -83,6 +82,14 @@ const storeMovieReducer = (state = [
             return state;
 
         }
+        case 'UPDATEMOVIE': {
+           // const index = state.findIndex(movie => movie.id === action.movie.id)
+           const newState = state.map(movie => movie.id !== action.movie.id ? movie : action.movie)  
+            // const newMovie = [foundMovie, ...action.movie.reviews]
+           // console.log('newMovie is', newMovie)
+           return newState
+        }
+
         default:
             return state;
     }

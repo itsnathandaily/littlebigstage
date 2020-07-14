@@ -1,1 +1,2 @@
-export {CalculateStarRatingAverage} from './CalculateStarRatingAverage'
+export { CalculateStarRatingAverage } from './CalculateStarRatingAverage'
+export { renameKey } from './renameKey'
