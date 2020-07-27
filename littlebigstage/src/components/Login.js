@@ -4,6 +4,7 @@ import * as Yup from 'yup';
 import axios from 'axios';
 import { userLoggedIn } from '../actions';
 import { useDispatch } from 'react-redux';
+import { useHistory, withRouter } from 'react-router-dom';
 import { SearchMoviesContext } from '../App';
 
 const validationSchema = Yup.object().shape({
@@ -16,13 +17,20 @@ const validationSchema = Yup.object().shape({
   // .min(6, 'Must be 6 characters or more')
 });
 
-const Login = ({ dispatch }) => {
+const Login = (props) => {
+  // let history = useHistory();
+  console.log('props is', props.history);
+  const dispatch4 = useDispatch();
   const [loginError, setLoginError] = React.useState(null);
+
   //stores loggedin user in state
   const handleUserLoggedIn = (usernameAndToken) => {
-    dispatch(userLoggedIn(usernameAndToken));
+    dispatch4(userLoggedIn(usernameAndToken));
     setLoginError(null);
+
     //TO DO trigger close modal ?
+    // history.push('/');
+    //console.log('dispatch after dispatch is', dispatch);
   };
 
   return (
@@ -73,8 +81,8 @@ const Login = ({ dispatch }) => {
           </div>
           <br />
           <div className="input-row">
-            <button type="submit" disabled={isSubmitting}>
-              Submit
+            <button class="btn" type="submit" disabled={isSubmitting}>
+             <h3>Submit</h3>
             </button>
           </div>
         </form>

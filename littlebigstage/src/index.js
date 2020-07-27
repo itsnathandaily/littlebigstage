@@ -14,17 +14,16 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const sagaMiddleware = createSagaMiddleware();
 
 
-const store = createStore(allReducers, /* preloadedState, */ composeEnhancers(applyMiddleware(sagaMiddleware)));
+const store = createStore(allReducers, composeEnhancers(applyMiddleware(sagaMiddleware)));
 sagaMiddleware.run(watchStoreMovie);
 
 
 ReactDOM.render(
-    <ModalProvider>
     <Provider store={store} >
+    <ModalProvider>
         <App />
-    </Provider>
-    </ModalProvider>,
-    document.getElementById('root'));
+        </ModalProvider>
+    </Provider>,document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

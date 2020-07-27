@@ -16,7 +16,7 @@ export default function MovieReviewDetails() {
   let history = useHistory();
   // const testmovie = useSelector((state) => state.existingMovies.filter((movie) => movie.title === match.params.title));
   const SelectedMovie = useSelector((state) => state.SelectedMovie);
-  console.log('MovieReview Details SelectedMovie is', SelectedMovie);
+  // console.log('MovieReview Details SelectedMovie is', SelectedMovie);
   const { NewReviewUpdated } = useSelector((state) => state);
   const [errorMessage, setErrorMessage] = React.useState(null);
   const { dispatch } = React.useContext(SearchMoviesContext);
@@ -40,7 +40,7 @@ export default function MovieReviewDetails() {
       //  });
     }
     return () => {
-      console.log('clean up task');
+      //  console.log('clean up task');
       dispatch(reviewState(false));
     };
   }, [SelectedMovie, dispatch]);
@@ -68,7 +68,12 @@ export default function MovieReviewDetails() {
               <h1>{SelectedMovie.title} </h1>
             </div>
             {errorMessage && <h3>{errorMessage}</h3>}
-            {!newReview && <button onClick={handleAddNewReview}> {!newReview ? 'Rate it' : null}</button>}
+            {!newReview && (
+              <button className="btn" onClick={handleAddNewReview}>
+                {' '}
+                <h3>{!newReview ? 'Rate it' : null}</h3>
+              </button>
+            )}
 
             <div className="Details_rating">
               {!newReview ? (

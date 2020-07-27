@@ -97,6 +97,7 @@ function AddReview2(props) {
         //     .updateMovie(SelectedMovie.id, reviewUpdate)
         .then((res) => {
           if (res.data) {
+            console.log('updateReview email is', email);
             dispatch(updateReview({ id: SelectedMovie.id, rating, why, email }));
             dispatch(UpdateSelectedMovie({ id: SelectedMovie.id, rating: rating, why: why, username: email }));
             dispatch(reviewState(true));
@@ -137,7 +138,9 @@ function AddReview2(props) {
           <textarea type="text" name="why" id="why" onChange={(e) => setWhy(e.target.value)} />
           <br />
 
-          <button type="submit">Add Review</button>
+          <button className="btn" type="submit">
+            <h3>Add Review</h3>
+          </button>
         </form>
       )}
     </div>

@@ -10,6 +10,7 @@ import { storeMovie, selectedMovie } from './actions';
 import RegisterLoginContainer from './containers/RegisterLoginContainer';
 import api from './apis';
 import AddReview2 from './components/AddReview2';
+import Login from './components/Login';
 export const SearchMoviesContext = React.createContext({});
 
 function App() {
@@ -75,7 +76,7 @@ function App() {
             <Route path="/register" exact>
               <RegisterLoginContainer />
             </Route>
-            {/* <Route path="/login" exact  ><Login /></Route> */}
+            <Route path="/login" exact  ><Login /></Route>
             <Route path="/addreview" exact>
               <AddReview2 />
             </Route>

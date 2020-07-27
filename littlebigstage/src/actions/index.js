@@ -5,15 +5,15 @@ export const storeMovie = (newMovie) => {
   };
 };
 
-export const UpdateSelectedMovie = ({ id, rating, why, email })=>{
+export const UpdateSelectedMovie = ({ id, rating, why, email }) => {
   return {
-    type : 'UPDATESELECTEDMOVIE',
+    type: 'UPDATESELECTEDMOVIE',
     id: id,
     rating: rating,
     why: why,
     email: email,
-  }
-}
+  };
+};
 
 export const updateMovie = (movie) => {
   return {

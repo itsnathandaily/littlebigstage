@@ -2,9 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import SearchMovie from './SearchMovie';
 
-
 const Nav = ({ ExistingMovies, setListMovies, USERLOGGEDIN }) => {
- 
   const inputref = React.useRef();
 
   const navStyle = {
@@ -26,15 +24,15 @@ const Nav = ({ ExistingMovies, setListMovies, USERLOGGEDIN }) => {
         <SearchMovie setListMovies={setListMovies} />
       </div>
       <Link style={navStyle} to="/addcontent">
-        <p>Add Content</p>
+        {/* <p>Add Content</p> */}
       </Link>
-      <Link style={navStyle} to="/register">
+      {/* <Link style={navStyle} to="/register">
         <p>Register | Login</p>
-      </Link>
+      </Link> */}
       {/* <Link style={navStyle} to="/addreview">
         <p>add review</p>
       </Link> */}
-      <p>Total Reviewed {ExistingMovies.length}</p>
+      {/* <p>Total Reviewed {ExistingMovies.length}</p> */}
       {USERLOGGEDIN ? <p>Hi {USERLOGGEDIN}</p> : null}
     </nav>
   );
