@@ -1,65 +1,32 @@
-import React, { useState, useContext, useEffect } from 'react'
-import { useSelector } from 'react-redux'
-import { MovieContext } from '../contexts/MovieContext'
-const LOCAL_STORAGE_KEY = "Original.Movies";
+import React from "react";
+import { SearchMoviesContext } from "../App";
 
+function SearchMovie({ setListMovies }) {
+  const { searchForMovies } = React.useContext(SearchMoviesContext);
+  const [search, setSearch] = React.useState("");
+  const [query, setQuery] = React.useState(null);
 
-export default function SearchMovie() {
-    const ExistingMovies = useSelector(state => state.existingMovies)
-    //console.log('Existing Movies are', ExistingMovies)
+  React.useEffect(() => {
+    const [...result] = searchForMovies(search);
+    setListMovies(result);
+  }, [search]);
 
-     const [movies, setMovies] = React.useContext(MovieContext)
-   // const [movies, setMovies] = React.useState(ExistingMovies)
-    const [search, setSearch] = useState("");
-    const [query, setQuery] = useState("")
-
-    /* const getOrginalMoviesFromLocalStorage = () => {
-        const recipeJson = localStorage.getItem(LOCAL_STORAGE_KEY);
-        if (recipeJson != null) {
-            setMovies(JSON.parse(recipeJson));
-        }
-    };
-
-    useEffect(() => {
-        //console.log("Rendered");
-        localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(movies));
-    }, []);
- */
-    const updateSearch = e => {
-        e.preventDefault();
-        setSearch(e.target.value);
-        console.log(search)
-    }
-
-    const getSearch = e => {
-        e.preventDefault();
-        setQuery(search);
-        setSearch('');
-    }
-
-    const searchForMovies = () => {
-        //console.log('query is ', query)
-        //console.log('movies is ', movies)
-        //const [...result] = movies.filter(movie => movie.title === query);
-        const [...result] = ExistingMovies.filter(movie => movie.title === query);
-        console.log('result is ', result)
-        //query === '' ? getOrginalMoviesFromLocalStorage() : setMovies(result)
-        query === '' ? setMovies(ExistingMovies) : setMovies(result)
-    }
-
-
-
-    useEffect(() => {
-        searchForMovies();
-    }, [query])
-
-
-    return (
-        <div className="search-div">
-            <form onSubmit={getSearch} className="search-form">
-                <input className="search-input" type="text" value={search} onChange={updateSearch} />
-                <button className="search-button" type="submit">Search</button>
-            </form>
-        </div>
-    )
+  return (
+    <div className="search-div">
+      <form
+        onSubmit={(event) => setQuery(event.target.value)}
+        className="search-form"
+      >
+        <input
+          className="search-input"
+          type="text"
+          placeholder="Search"
+          onChange={(e) => setSearch(e.target.value)}
+        />
+        {/* <button>Submit</button> */}
+      </form>
+    </div>
+  );
 }
+
+export default React.memo(SearchMovie);

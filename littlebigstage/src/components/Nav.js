@@ -1,24 +1,41 @@
-import React, { useContext } from 'react'
-import { MovieContext } from '../contexts/MovieContext'
-import { useSelector } from 'react-redux'
-import { Link, withRouter } from 'react-router-dom'
-import SearchMovie from './SearchMovie'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import SearchMovie from './SearchMovie';
 
-export default function Nav() {
-    const [movies, setMovies] = useContext(MovieContext)
-    const ExistingMovies = useSelector(state => state.existingMovies)
+const Nav = ({ ExistingMovies, setListMovies, USERLOGGEDIN }) => {
+  const inputref = React.useRef();
 
+  const navStyle = {
+    color: 'white',
+  };
 
-    const navStyle = {
-        color: 'white'
-    }
-    return (
-        <nav className="nav">
-            <h1>Little Big Stage</h1>
-            <Link style={navStyle} to="/"><p>Listing</p></Link>
-            <div className="searchmovie_div"><SearchMovie /></div>
-            <Link style={navStyle} to="/addcontent"><p>Add Content</p></Link>
-            <p>Total Reviewed {ExistingMovies.length}</p>
-        </nav>
-    )
-}
+  React.useEffect(() => {
+    inputref.current.click();
+  }, [ExistingMovies]);
+
+  return (
+    <nav className="nav">
+      <div className="title_Link">
+        <Link id="title_Link" style={navStyle} to="/" onClick={() => setListMovies(ExistingMovies)} ref={inputref}>
+          <h1>Little Big Stage</h1>
+        </Link>
+      </div>
+      <div className="searchmovie_div">
+        <SearchMovie setListMovies={setListMovies} />
+      </div>
+      <Link style={navStyle} to="/addcontent">
+        {/* <p>Add Content</p> */}
+      </Link>
+      {/* <Link style={navStyle} to="/register">
+        <p>Register | Login</p>
+      </Link> */}
+      {/* <Link style={navStyle} to="/addreview">
+        <p>add review</p>
+      </Link> */}
+      {/* <p>Total Reviewed {ExistingMovies.length}</p> */}
+      {USERLOGGEDIN ? <p>Hi {USERLOGGEDIN}</p> : null}
+    </nav>
+  );
+};
+
+export default React.memo(Nav);
