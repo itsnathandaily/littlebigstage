@@ -1,11 +1,8 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import Register from '../components/Register';
 import Login from '../components/Login';
-import { useHistory, withRouter } from 'react-router-dom';
-
-import { SearchMoviesContext } from '../App';
 
 export const RegisterLoginContainer = ({ dispatch }) => {
   const [tab, setTab] = React.useState({

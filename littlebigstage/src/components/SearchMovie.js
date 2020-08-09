@@ -12,13 +12,13 @@ function SearchMovie({ setListMovies }) {
   }, [search]);
 
   return (
-    <div className="search-div">
+    <div className="minnavdiv">
       <form
         onSubmit={(event) => setQuery(event.target.value)}
         className="search-form"
       >
         <input
-          className="search-input"
+          className="navdiv"
           type="text"
           placeholder="Search"
           onChange={(e) => setSearch(e.target.value)}

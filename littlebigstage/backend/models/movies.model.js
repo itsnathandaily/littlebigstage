@@ -14,8 +14,11 @@ const MovieSchema = mongoose.Schema({
     type: String,
     required: true,
   },
-  coverImageName: {
-    type: String,
+  coverImage: {
+    name: String,
+    data: Buffer,
+    size: Number,
+    mimetype: String,
   },
   reviews: [
     {

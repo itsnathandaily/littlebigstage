@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import MovieList from './components/MovieList';
-import Nav from './components/Nav';
+import Nav from './components/Nav/Nav';
 import AddMovie from './components/AddMovie';
 import MovieReviewDetails from './components/MovieReviewDetails';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
@@ -16,7 +16,7 @@ export const SearchMoviesContext = React.createContext({});
 function App() {
   const ExistingMovies = useSelector((state) => state.existingMovies);
   const USERLOGGEDIN = useSelector((state) => state.user.username);
-  const isMovieSelected = useSelector((state) => state.SelectedMovie);
+  //const isMovieSelected = useSelector((state) => state.SelectedMovie);
   const [ListMovies, setListMovies] = React.useState(ExistingMovies);
   const dispatch = useDispatch();
   const [List, setList] = React.useState(null);

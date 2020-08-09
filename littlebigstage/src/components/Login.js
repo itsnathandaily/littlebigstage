@@ -1,11 +1,10 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
 import { userLoggedIn } from '../actions';
 import { useDispatch } from 'react-redux';
-import { useHistory, withRouter } from 'react-router-dom';
-import { SearchMoviesContext } from '../App';
+
 
 const validationSchema = Yup.object().shape({
   username: Yup.string().required('Must enter a name'),

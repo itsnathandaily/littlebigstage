@@ -1,7 +1,7 @@
 import React from 'react';
-import { IoIosThumbsDown, IoIosThumbsUp, IoMdSad } from 'react-icons/io';
+import { IoIosThumbsDown, IoIosThumbsUp } from 'react-icons/io';
 // import { FaMehBlank } from "react-icons/fa"
-import { AiFillFire, AiFillMeh, AiOutlineMeh } from 'react-icons/ai';
+// import { AiFillFire, AiFillMeh, AiOutlineMeh } from 'react-icons/ai';
 
 export default function RatingIcons({ rate }) {
   return (
