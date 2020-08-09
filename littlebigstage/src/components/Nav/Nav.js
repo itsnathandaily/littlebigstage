@@ -62,11 +62,11 @@ const Nav = ({ ExistingMovies, setListMovies, USERLOGGEDIN }) => {
         <div className="navdiv">
           <SearchMovie setListMovies={setListMovies} />
         </div>
-        <div className="navdiv">
+        {/* <div className="navdiv">
           <Link style={navStyle} to="/addcontent">
             <p>Add Content</p>
           </Link>
-        </div>
+        </div> */}
 
         {/* <div className="navdiv">
           <Link style={navStyle} to="/register">
